@@ -10,6 +10,7 @@ let OrderSchema = new mongoose.Schema(
         contact: { type: String, required: true },
         message: { type: String }, 
         created: { type: Date, default: Date.now },
+        status: { type: String, default: 'requested' },
         data: Buffer,
     },
     {
