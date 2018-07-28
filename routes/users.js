@@ -32,6 +32,22 @@ router.get('/', function(req, res) {
 });
 
 
+router.get('/get', function (req, res, next) {
+  let reqParams = {};
+  if(typeof req.query.id !== 'undefined') reqParams["_id"] = req.query.id;
+  if(typeof req.query.first_name !== 'undefined') reqParams["first_name"] = req.query.first_name;
+  if(typeof req.query.last_name !== 'undefined') reqParams["last_name"] = req.query.last_name;
+  if(typeof req.query.group !== 'undefined') reqParams["group"] = req.query.group;
+  mongoose.model('User').find(reqParams, function(err, users) {
+    if(err) {
+      console.log(err)
+      res.send('ERR')
+    }
+    res.send(users)
+  });
+});
+
+
 router.post('/add', function(req, res) {
   let addParams = {};
 
@@ -53,39 +69,6 @@ router.post('/add', function(req, res) {
                                     });
                                   }
              );
-});
-
-
-router.post('/get', function (req, res, next) {
-  let reqParams = {};
-  if(typeof req.query.id !== 'undefined') reqParams["_id"] = req.query.id;
-  if(typeof req.query.first_name !== 'undefined') reqParams["first_name"] = req.query.first_name;
-  if(typeof req.query.last_name !== 'undefined') reqParams["last_name"] = req.query.last_name;
-  if(typeof req.query.group !== 'undefined') reqParams["group"] = req.query.group;
-  mongoose.model('User').find(reqParams, function(err, users) {
-    if(err) {
-      console.log(err)
-      res.send('ERR')
-    }
-    res.send(users)
-  });
-  // res.send('OK');
-});
-
-
-router.get('/get', function (req, res, next) {
-  let reqParams = {};
-  if(typeof req.query.id !== 'undefined') reqParams["_id"] = req.query.id;
-  if(typeof req.query.first_name !== 'undefined') reqParams["first_name"] = req.query.first_name;
-  if(typeof req.query.last_name !== 'undefined') reqParams["last_name"] = req.query.last_name;
-  if(typeof req.query.group !== 'undefined') reqParams["group"] = req.query.group;
-  mongoose.model('User').find(reqParams, function(err, users) {
-    if(err) {
-      console.log(err)
-      res.send('ERR')
-    }
-    res.send(users)
-  });
 });
 
 
