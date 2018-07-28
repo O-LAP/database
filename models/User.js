@@ -8,8 +8,8 @@ let UserSchema = new mongoose.Schema(
     {
         first_name: { type: String, trim: true, required: true },
         last_name: { type: String, trim: true, required: true },
-        email: { type: String, unique: true, lowercase: true, trim: true },
-        password: String,
+        email: { type: String, required: true, unique: true, lowercase: true, trim: true },
+        password: { type: String, required: true },
         join_date: { type: Date, default: Date.now },
         address: { type: String, trim: true },
         labels: [String],
