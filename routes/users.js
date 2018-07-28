@@ -1,13 +1,14 @@
+require('dotenv').config();
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var User = require('./../models/User');
 
 
-mongoose.connect('mongodb://amit:@ds143451.mlab.com:43451/o-lap');
 
 
 // mongoose.model('users', User);
+mongoose.connect(`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PWD}@ds143451.mlab.com:43451/o-lap`);
 
 
 router.get('/', function(req, res) {
