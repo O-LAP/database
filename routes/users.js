@@ -25,6 +25,7 @@ String.prototype.hashCode = function() {
 
 
 let mongoURI = `mongodb://app:abcd1234@ds143451.mlab.com:43451/o-lap`;
+console.log('users: ' + mongoURI);
 mongoose.connect(mongoURI);
 
 
