@@ -23,22 +23,22 @@ router.get('/', function(req, res) {
 });
 
 
-router.get('/get', function (req, res, next) {
-  let reqParams = {};
-  if(typeof req.query.owner !== 'undefined') reqParams["owner"] = req.query.owner;
-  if(typeof req.query.delivery_address !== 'undefined') reqParams["delivery_address"] = req.query.delivery_address;
-  if(typeof req.query.contact !== 'undefined') reqParams["contact"] = req.query.contact;
-  if(typeof req.query.message !== 'undefined') reqParams["message"] = req.query.message;
-  if(typeof req.query.data !== 'undefined') reqParams["data"] = req.query.data;
-  if(typeof req.query.status !== 'undefined') reqParams["status"] = req.query.status;
-  mongoose.model('Order').find(reqParams, function(err, orders) {
-    if(err) {
-      console.log(err)
-      res.send('ERR')
-    }
-    res.send(orders)
-  });
-});
+// router.get('/get', function (req, res, next) {
+//   let reqParams = {};
+//   if(typeof req.query.owner !== 'undefined') reqParams["owner"] = req.query.owner;
+//   if(typeof req.query.delivery_address !== 'undefined') reqParams["delivery_address"] = req.query.delivery_address;
+//   if(typeof req.query.contact !== 'undefined') reqParams["contact"] = req.query.contact;
+//   if(typeof req.query.message !== 'undefined') reqParams["message"] = req.query.message;
+//   if(typeof req.query.data !== 'undefined') reqParams["data"] = req.query.data;
+//   if(typeof req.query.status !== 'undefined') reqParams["status"] = req.query.status;
+//   mongoose.model('Order').find(reqParams, function(err, orders) {
+//     if(err) {
+//       console.log(err)
+//       res.send('ERR')
+//     }
+//     res.send(orders)
+//   });
+// });
 
 
 router.post('/add', function(req, res) {
