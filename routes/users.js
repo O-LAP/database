@@ -24,8 +24,8 @@ String.prototype.hashCode = function() {
 //---------------------------------------------------------
 
 
-let mongoURI = `mongodb://${process.env.MONGO_ID}:${process.env.MONGO_PWD}@ds143451.mlab.com:43451/o-lap`;
-mongoose.connect(mongoURI);
+let mongoURI = process.env.MONGO_URL;
+mongoose.connect(mongoURI, { useNewUrlParser: true });
 
 
 router.get('/', function(req, res) {
