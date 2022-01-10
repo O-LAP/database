@@ -25,12 +25,12 @@ router.get('/', function(req, res) {
 
 // router.get('/get', function (req, res, next) {
 //   let reqParams = {};
-//   if(typeof req.body.owner !== 'undefined') reqParams["owner"] = req.body.owner;
-//   if(typeof req.body.delivery_address !== 'undefined') reqParams["delivery_address"] = req.body.delivery_address;
-//   if(typeof req.body.contact !== 'undefined') reqParams["contact"] = req.body.contact;
-//   if(typeof req.body.message !== 'undefined') reqParams["message"] = req.body.message;
-//   if(typeof req.body.data !== 'undefined') reqParams["data"] = req.body.data;
-//   if(typeof req.body.status !== 'undefined') reqParams["status"] = req.body.status;
+//   if(typeof req.query.owner !== 'undefined') reqParams["owner"] = req.query.owner;
+//   if(typeof req.query.delivery_address !== 'undefined') reqParams["delivery_address"] = req.query.delivery_address;
+//   if(typeof req.query.contact !== 'undefined') reqParams["contact"] = req.query.contact;
+//   if(typeof req.query.message !== 'undefined') reqParams["message"] = req.query.message;
+//   if(typeof req.query.data !== 'undefined') reqParams["data"] = req.query.data;
+//   if(typeof req.query.status !== 'undefined') reqParams["status"] = req.query.status;
 //   mongoose.model('Order').find(reqParams, function(err, orders) {
 //     if(err) {
 //       console.log(err)
@@ -43,12 +43,12 @@ router.get('/', function(req, res) {
 
 router.post('/add', function(req, res) {
   let addParams = {};
-  if(typeof req.body.owner !== 'undefined') addParams["owner"] = req.body.owner;
-  if(typeof req.body.delivery_address !== 'undefined') addParams["delivery_address"] = req.body.delivery_address;
-  if(typeof req.body.contact !== 'undefined') addParams["contact"] = req.body.contact;
-  if(typeof req.body.message !== 'undefined') addParams["message"] = req.body.message;
-  if(typeof req.body.data !== 'undefined') addParams["data"] = req.body.data;
-  if(typeof req.body.status !== 'undefined') addParams["status"] = req.body.status;
+  if(typeof req.query.owner !== 'undefined') addParams["owner"] = req.query.owner;
+  if(typeof req.query.delivery_address !== 'undefined') addParams["delivery_address"] = req.query.delivery_address;
+  if(typeof req.query.contact !== 'undefined') addParams["contact"] = req.query.contact;
+  if(typeof req.query.message !== 'undefined') addParams["message"] = req.query.message;
+  if(typeof req.query.data !== 'undefined') addParams["data"] = req.query.data;
+  if(typeof req.query.status !== 'undefined') addParams["status"] = req.query.status;
   Order.create(addParams,
               function(err, order) {
                                     if(err) {
